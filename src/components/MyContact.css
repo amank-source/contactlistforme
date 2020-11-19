@@ -1,0 +1,43 @@
+.mycontacts {
+	display: flex;
+	align-items: center;
+	align-content: center;
+	flex-basis: 400px;
+
+	flex-wrap: wrap;
+}
+
+.contact-card {
+	height: 100%;
+	width: 100%;
+	border: 2px solid burlywood;
+	margin: 30px 15px 30px 30px;
+	box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+
+	align-items: center;
+	align-content: center;
+	padding: 10px;
+}
+
+.card-title {
+	display: flex;
+	justify-content: space-between;
+	background: burlywood;
+	padding: 5px 15px 5px 15px;
+}
+
+.contact-buttons {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+@media (max-width: 780px) {
+	#posts {
+		width: 80%;
+		height: 100%;
+	}
+
+	#posts > .MuiSvgIcon-root {
+		margin: 0;
+	}
+}

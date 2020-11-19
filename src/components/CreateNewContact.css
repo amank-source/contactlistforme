@@ -1,0 +1,41 @@
+.createContact {
+	display: flex;
+	width: 50%;
+	align-content: center;
+	align-items: center;
+	font-family: 'Times New Roman', Times, serif;
+	flex-direction: column;
+	border: 2px solid red;
+	margin-left: 400px;
+	margin-top: 60px;
+}
+
+.createContact > h1 {
+	font-family: 'Times New Roman', Times, serif;
+	padding: 10px;
+	margin: 10px;
+}
+
+.createContact > form {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	border: 2px solid black;
+	width: 700px;
+
+	margin: 15px;
+}
+.createContact > form > h3 {
+	padding: 10px;
+	margin: 5px;
+}
+.createContact > form > input {
+	margin: 10px;
+	width: 90%;
+}
+.createContact > button {
+	margin: 10px;
+	padding: 5px;
+	width: 400px;
+
+	background-color: red;
+}
