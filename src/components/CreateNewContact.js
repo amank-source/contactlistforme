@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import hitAPI from '../api'
 
 function CreateNewContact(props) {
+  const selectContacts = ['work', 'personal', 'other']
   const history = useHistory()
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
@@ -17,6 +18,7 @@ function CreateNewContact(props) {
   return (
     <div className="createContact">
       <h1>Create New Contact</h1>
+
       <form onSubmit={(e) => e.preventDefault()}>
         <h3>Contact Name:</h3>
         <input
@@ -45,12 +47,16 @@ function CreateNewContact(props) {
           type="text"
         />
         <h3>Contact Type</h3>
-        <input
+        <select
           value={contactType}
           onChange={(e) => setContactType(e.target.value)}
-          type="text"
-          placeholder="work"
-        />
+        >
+          {selectContacts.map((contactTypeName, idx) => (
+            <option key={idx} value={contactTypeName}>
+              {contactTypeName}
+            </option>
+          ))}
+        </select>
       </form>
       <button
         onClick={async () => {

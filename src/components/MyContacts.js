@@ -3,24 +3,33 @@ import './MyContact.css'
 import hitAPI from '../api'
 import ContactEdit from './ContactEdit'
 import Comment from './Comment'
+import ShowComments from './ShowComments'
 
 function MyContacts(props) {
-  const { contacts, setContacts, updateFunc } = props
-  const [isEdit, setIsEdit] = useState('')
-  const [wantToComment, setWantToComment] = useState('')
+  const { contacts, setContacts, updateFunc, alphaOrder } = props
+  const [isEdit, setIsEdit] = useState(null)
+  const [wantToComment, setWantToComment] = useState(null)
+  const [comment, setcomment] = useState(false)
+
   console.log(contacts)
   return (
     <div className="mycontacts">
+      {alphaOrder(contacts)}
+
       {contacts.map((contact, idx) => {
         return (
           <div className="contact-card" key={idx}>
             <div className="card-title">
-              <h2>{contact.name}</h2>
+              <h2>
+                Name: {contact.name}
+                <span>{`(${contact.contactType})`}</span>
+              </h2>
             </div>
             <div className="contact-info">
-              <h4>{contact.address}</h4>
-              <h4>{contact.email}</h4>
-              <h4>{contact.phoneNumber}</h4>
+              <h4> Adress: {contact.address}</h4>
+              <h4>Email: {contact.email}</h4>
+              <h4>Phone Number : {contact.phoneNumber}</h4>
+
               {isEdit === contact.id ? (
                 <ContactEdit
                   name={contact.name}
@@ -29,12 +38,30 @@ function MyContacts(props) {
                   phoneNumber={contact.phoneNumber}
                   contactID={contact.id}
                   updateFunc={updateFunc}
-                  contact={contacts}
+                  contacts={contacts}
                   setContacts={setContacts}
+                  closeEdit={() => setIsEdit(null)}
                 />
               ) : null}
 
-              {wantToComment === contact.id ? <Comment /> : null}
+              {wantToComment === contact.id ? (
+                <Comment
+                  contactID={contact.id}
+                  contacts={contacts}
+                  setContacts={setContacts}
+                  handleFinish={() => setWantToComment(null)}
+                />
+              ) : null}
+
+              {comment === contact.id ? (
+                <ShowComments
+                  contact={contact}
+                  setContacts={setContacts}
+                  contacts={contacts}
+                  closeComments={() => setcomment(null)}
+                />
+              ) : null}
+
               <div className="contact-buttons">
                 <button
                   onClick={async () => {
@@ -57,6 +84,15 @@ function MyContacts(props) {
                 <button onClick={() => setWantToComment(contact.id)}>
                   Comments
                 </button>
+
+                {contact.comments.length > 0 ? (
+                  <button
+                    className="view-button"
+                    onClick={() => setcomment(contact.id)}
+                  >
+                    View Comments
+                  </button>
+                ) : null}
               </div>
             </div>
           </div>

@@ -1,43 +1,79 @@
 .mycontacts {
-	display: flex;
-	align-items: center;
-	align-content: center;
-	flex-basis: 400px;
-
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 40px;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	place-items: center;
+	margin: 40px 40px 20px 20px;
 }
 
 .contact-card {
 	height: 100%;
-	width: 100%;
-	border: 2px solid burlywood;
-	margin: 30px 15px 30px 30px;
+	border: 2px solid #8d055b;
 	box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-
-	align-items: center;
-	align-content: center;
 	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 }
 
 .card-title {
 	display: flex;
 	justify-content: space-between;
-	background: burlywood;
+	background: #483d8b;
 	padding: 5px 15px 5px 15px;
+	color: rgb(209, 207, 207);
+	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .contact-buttons {
 	display: flex;
 	justify-content: space-evenly;
 }
+.contact-buttons > button {
+	width: 100px;
+	height: 35px;
+	background: #008080;
+	border-radius: 12px;
+	color: rgb(248, 234, 234);
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.contact-buttons :hover {
+	cursor: pointer;
+}
 
-@media (max-width: 780px) {
-	#posts {
-		width: 80%;
-		height: 100%;
+@media (max-width: 1100px) {
+	.mycontacts {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 40px;
+		grid-column-start: 1;
+		grid-column-end: 3;
+		place-items: center;
+		margin: 40px 40px 20px 20px;
 	}
+}
 
-	#posts > .MuiSvgIcon-root {
-		margin: 0;
+@media (max-width: 1500px) {
+	.mycontacts {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 40px;
+		grid-column-start: 1;
+		grid-column-end: 3;
+		place-items: center;
+		margin: 40px 40px 20px 20px;
+	}
+}
+@media (max-width: 600px) {
+	.mycontacts {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 40px;
+		grid-column-start: 1;
+		grid-column-end: 3;
+		place-items: center;
+		margin: 40px 40px 20px 20px;
 	}
 }

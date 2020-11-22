@@ -5,7 +5,7 @@
 	align-items: center;
 	font-family: 'Times New Roman', Times, serif;
 	flex-direction: column;
-	border: 2px solid red;
+
 	margin-left: 400px;
 	margin-top: 60px;
 }
@@ -28,6 +28,12 @@
 	padding: 10px;
 	margin: 5px;
 }
+
+.createContact > form > select {
+	height: 35px;
+	width: 92%;
+	margin-left: 10px;
+}
 .createContact > form > input {
 	margin: 10px;
 	width: 90%;
@@ -36,6 +42,81 @@
 	margin: 10px;
 	padding: 5px;
 	width: 400px;
+	height: 30px;
+	border-radius: 12px;
+}
 
-	background-color: red;
+@media (max-width: 700px) {
+	.createContact {
+		width: 400px;
+		display: flex;
+		align-self: flex-start;
+
+		margin-left: 100px;
+		border: 2px solid grey;
+		padding: 5px;
+	}
+
+	.createContact > form {
+		width: 350px;
+	}
+	.createContact > form > input {
+		height: 25px;
+	}
+}
+
+@media (max-width: 650px) {
+	.createContact {
+		width: 400px;
+		display: flex;
+		align-self: flex-start;
+
+		margin-left: 100px;
+		border: 2px solid grey;
+		padding: 5px;
+	}
+
+	.createContact > form {
+		width: 350px;
+	}
+	.createContact > form > input {
+		height: 25px;
+	}
+}
+
+@media (max-width: 900px) {
+	.createContact {
+		width: 500px;
+		display: flex;
+		align-self: flex-start;
+
+		margin-left: 100px;
+		border: 2px solid grey;
+		padding: 5px;
+	}
+
+	.createContact > form {
+		width: 450px;
+	}
+	.createContact > form > input {
+		height: 25px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.createContact {
+		width: 600px;
+		display: flex;
+		align-self: flex-start;
+
+		margin-left: 100px;
+		border: 2px solid grey;
+		padding: 5px;
+	}
+	.createContact > form {
+		width: 550px;
+	}
+	.createContact > form > input {
+		height: 25px;
+	}
 }

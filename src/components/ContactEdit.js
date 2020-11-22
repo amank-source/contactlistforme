@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import hitAPI from '../api'
 import { useHistory } from 'react-router-dom'
+import './CreateNewContact.css'
 
 function ContactEdit(props) {
   const history = useHistory()
@@ -9,7 +10,8 @@ function ContactEdit(props) {
   const [email, setEmail] = useState(props.email)
   const [phoneNumber, setPhoneNumber] = useState(props.phoneNumber)
   const [contactType, setContactType] = useState(props.contactType)
-  const { contacts, setContacts } = props
+  const { contacts, setContacts, closeEdit } = props
+  const selectContacts = ['work', 'personal', 'other']
 
   const { addNewContact, contactID, updateFunc } = props
 
@@ -44,12 +46,16 @@ function ContactEdit(props) {
           type="text"
         />
         <h3>Contact Type</h3>
-        <input
+        <select
           value={contactType}
           onChange={(e) => setContactType(e.target.value)}
-          type="text"
-          placeholder="work"
-        />
+        >
+          {selectContacts.map((contactTypeName, idx) => (
+            <option key={idx} value={contactTypeName}>
+              {contactTypeName}
+            </option>
+          ))}
+        </select>
       </form>
       <button
         onClick={async () => {
@@ -70,13 +76,15 @@ function ContactEdit(props) {
           )
           console.log(data.contact)
           updateFunc(data.contact)
+          closeEdit()
 
           console.log('contact is', data)
-          document.getElementById('edit-form').style.display = 'none'
         }}
       >
         Update
       </button>
+
+      <button onClick={() => closeEdit()}>Cancel</button>
     </div>
   )
 }

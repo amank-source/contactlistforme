@@ -1,0 +1,18 @@
+.comments {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 10px 10px 10px 2px;
+	border: 2px solid grey;
+}
+.comments-divci {
+	padding: 10px 10px 10px 0px;
+}
+
+.comments-divci > p {
+	padding: 10px;
+}
+.comments-divci > button {
+	margin-top: 15px;
+	height: 25px;
+	width: 60px;
+}
