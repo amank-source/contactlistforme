@@ -19,8 +19,8 @@ function ShowComments(props) {
 
   return (
     <div id="closse-mess" className="comments">
-      <CancelIcon onClick={() => closeComments()} />
-      <h3>Comments are here...</h3>
+      <CancelIcon onClick={() => closeComments(null)} />
+      <h3>Comments goes here ...</h3>
       {contact.comments.length > 0 ? (
         <div className="comments-divci">
           {contact.comments.map((comment, idx) => {
@@ -29,6 +29,7 @@ function ShowComments(props) {
                 <p>{comment.content}</p>
 
                 <button
+                  className="button-del"
                   onClick={async () => {
                     console.log(comment.id)
                     const result = await hitAPI(

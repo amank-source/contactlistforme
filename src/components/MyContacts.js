@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import './MyContact.css'
 import hitAPI from '../api'
 import ContactEdit from './ContactEdit'
@@ -82,10 +82,10 @@ function MyContacts(props) {
                 </button>
                 <button onClick={() => setIsEdit(contact.id)}>Edit</button>
                 <button onClick={() => setWantToComment(contact.id)}>
-                  Comments
+                  Make A Comment
                 </button>
 
-                {contact.comments.length > 0 ? (
+                {contact.comments && contact.comments.length > 0 ? (
                   <button
                     className="view-button"
                     onClick={() => setcomment(contact.id)}

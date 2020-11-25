@@ -4,7 +4,12 @@ import { useHistory } from 'react-router-dom'
 import hitAPI from '../api'
 
 function CreateNewContact(props) {
-  const selectContacts = ['work', 'personal', 'other']
+  const selectContacts = [
+    'choose one from below options',
+    'work',
+    'personal',
+    'other',
+  ]
   const history = useHistory()
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
